@@ -1,0 +1,9 @@
+# Install AWS PowerShell module if not installed
+Install-Module -Name AWS.Tools.Installer -Force -Scope CurrentUser
+Install-AWSToolsModule AWS.Tools.EC2 -Force
+
+# Set AWS credentials (You need to configure these first)
+Set-AWSCredential -AccessKey "YOUR_ACCESS_KEY" -SecretKey "YOUR_SECRET_KEY" -StoreAs default
+
+# Launch an EC2 instance
+New-EC2Instance -ImageId "ami-0abcdef1234567890" -InstanceType "t2.micro" -KeyName "MyKeyPair" -MinCount 1 -MaxCount 1
