@@ -1,0 +1,7 @@
+# Get open ports
+Write-Host "Open Ports:"
+Get-NetTCPConnection -State Listen | Select-Object LocalAddress, LocalPort, OwningProcess | Format-Table -AutoSize
+
+# Get firewall rules
+Write-Host "`nFirewall Rules:"
+Get-NetFirewallRule | Select-Object DisplayName, Enabled, Direction, Action | Format-Table -AutoSize
