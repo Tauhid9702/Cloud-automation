@@ -1,0 +1,14 @@
+# Login to Azure
+Connect-AzAccount
+
+# Set variables
+$resourceGroup = "MyResourceGroup"
+$location = "EastUS"
+$vmName = "MyVM"
+$image = "Win2022Datacenter"
+
+# Create a resource group (if not exists)
+New-AzResourceGroup -Name $resourceGroup -Location $location
+
+# Create a Virtual Machine
+New-AzVM -ResourceGroupName $resourceGroup -Name $vmName -Location $location -Image $image -Credential (Get-Credential)
