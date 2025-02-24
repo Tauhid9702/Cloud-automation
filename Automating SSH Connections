@@ -1,0 +1,9 @@
+$server = "your-server-ip"
+$username = "your-username"
+
+# Run a command over SSH
+ssh "$username@$server" "ls -la"
+
+# To establish an interactive session
+ssh "$username@$server"
+
